@@ -86,6 +86,7 @@ List._fields_ = [("pnext", POINTER(List)),
 The _fields_ class variable must, however, be defined before the type is first used (an instance is created, sizeof() is called on it, and so on). Later assignments to the _fields_ class variable will raise an AttributeError.
 It is possible to define sub-subclasses of structure types, they inherit the fields of the base class plus the _fields_ defined in the sub-subclass, if any.
 # Actual Functions
+```
 def press_key(key):
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
@@ -99,7 +100,7 @@ def release_key(key):
     ii_.ki = KeyBdInput( 0, keys[key], 0x0008 | 0x0002, 0, ctypes.pointer(extra) )
     x = Input( ctypes.c_ulong(1), ii_ )
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
-
+```
 -	ctypes.pointer(obj)
 This function creates a new pointer instance, pointing to obj. The returned object is of the type POINTER(type(obj)).
 Note: If you just want to pass a pointer to an object to a foreign function call, you should use byref(obj) which is much faster.
@@ -108,6 +109,7 @@ Windows only: Instances of this class represent loaded shared libraries, functio
 The Python global interpreter lock is released before calling any function exported by these libraries, and reacquired afterwards.
 
 3.	steering.py
+```
 import math # for mathematical funvtions
 import keyinput # for key inputs defined in the other file
 import cv2
@@ -135,7 +137,7 @@ with mp_hands.Hands(
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     results = hands.process(image)
     imageHeight, imageWidth, _ = image.shape
-
+```
 -	MODEL_COMPLEXITY
 Complexity of the hand landmark model: 0 or 1. Landmark accuracy as well as inference latency generally go up with the model complexity. Default to 1.
 -	MIN_DETECTION_CONFIDENCE
@@ -263,12 +265,12 @@ cv2.circle(img=image,center=(int(xm),int(ym)),radius=radius,color=(195, 255, 62)
        cv2.putText(image, "keeping back", (50, 50), font, 1.0, (0, 255, 0), 2, cv2.LINE_AA)
 
     cv2.imshow('MediaPipe Hands', cv2.flip(image, 1))
-
+```
 # Flip the image horizontally for a selfie-view display.
     if cv2.waitKey(5) & 0xFF == ord('q'):
       break
 cap.release()
-
+```
 cv2.circle() method is used to draw a circle on any image.
 Parameters: 
 •	image: It is the image on which the circle is to be drawn. 
