@@ -19,7 +19,7 @@ To install Mediapipe type “pip install mediapipe” in the terminal.
 
 2.	Keyinput.py
 ctypes: ctypes is a foreign function library for Python. It provides C compatible data types, and allows calling functions in DLLs or shared libraries. It can be used to wrap these libraries in pure Python.
-
+```
 import ctypes
 
 keys = {
@@ -28,10 +28,11 @@ keys = {
     "s":0x1F,
     "d":0x20,
 }
-
+```
 For keyboard scan codes go here
 -	ctypes.POINTER(type)
 This factory function creates and returns a new ctypes pointer type. Pointer types are cached and reused internally, so calling this function repeatedly is cheap. type must be a ctypes type.
+```
 PUL = ctypes.POINTER(ctypes.c_ulong)
 class KeyBdInput(ctypes.Structure):
     _fields_ = [("wVk", ctypes.c_ushort),
@@ -61,6 +62,7 @@ class Input_I(ctypes.Union):
 class Input(ctypes.Structure):
     _fields_ = [("type", ctypes.c_ulong),
                 ("ii", Input_I)]
+```
 -	class ctypes.Structure(*args, **kw)¶
 Abstract base class for structures in native byte order.
 Concrete structure and union types must be created by subclassing one of these types, and at least define a _fields_ class variable. ctypes will create descriptors which allow reading and writing the fields by direct attribute accesses. 
