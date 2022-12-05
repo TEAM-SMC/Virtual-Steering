@@ -29,7 +29,7 @@ keys = {
     "d":0x20,
 }
 ```
-For keyboard scan codes go here
+For keyboard scan codes go [here](https://web.archive.org/web/20190801085838/http:/www.gamespp.com/directx/directInputKeyboardScanCodes.html)
 -	ctypes.POINTER(type)
 This factory function creates and returns a new ctypes pointer type. Pointer types are cached and reused internally, so calling this function repeatedly is cheap. type must be a ctypes type.
 ```
